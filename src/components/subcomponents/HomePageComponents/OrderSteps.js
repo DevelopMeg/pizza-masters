@@ -1,6 +1,14 @@
 import React from "react";
 
+import { useHistory } from "react-router-dom";
+
 const OrderSteps = () => {
+  const history = useHistory();
+
+  const handleOpenNewPage = (path) => {
+    history.push(path);
+  };
+
   const steps = [
     "choose pizza",
     "choose size pizza",
@@ -22,7 +30,7 @@ const OrderSteps = () => {
     <section>
       <h2>order pizza online</h2>
       <ul>{stepsList}</ul>
-      <button>check menu</button>
+      <button onClick={() => handleOpenNewPage("/order")}>check menu</button>
     </section>
   );
 };
