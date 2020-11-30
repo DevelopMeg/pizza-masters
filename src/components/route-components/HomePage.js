@@ -5,7 +5,7 @@ import NewProducts from "../subcomponents/HomePageComponents/NewProducts";
 import Team from "../subcomponents/HomePageComponents/Team";
 import Contact from "../subcomponents/HomePageComponents/Contact";
 
-const HomePage = () => {
+const HomePage = ({ errMenuItems, menuItems }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <>
       <OrderSteps />
-      <NewProducts />
+      {!errMenuItems && <NewProducts menuItems={menuItems} />}
       <Team />
       <Contact />
     </>
