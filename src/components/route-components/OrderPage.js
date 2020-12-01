@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import SearchCategories from "../subcomponents/OrderPageComponents/SearchCategories";
+import Menu from "../subcomponents/OrderPageComponents/Menu";
 
 const OrderPage = ({ menuItems, menuExtraIngredients, menuSauces }) => {
   useEffect(() => {
@@ -55,6 +57,15 @@ const OrderPage = ({ menuItems, menuExtraIngredients, menuSauces }) => {
         menuCategories={menuCategories}
         handleMenuItemsCategories={handleMenuItemsCategories}
       />
+
+      {menuItems.length !== 0 && (
+        <Menu
+          menuItems={menuItems}
+          menuExtraIngredients={menuExtraIngredients}
+          menuSauces={menuSauces}
+          menuItemsCategories={menuItemsCategories}
+        />
+      )}
     </section>
   );
 };

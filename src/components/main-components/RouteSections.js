@@ -47,7 +47,13 @@ const RouteSections = () => {
       <Route
         path="/order"
         render={() => {
-          return <OrderPage />;
+          return (
+            <OrderPage
+              menuItems={menuItems}
+              menuExtraIngredients={menuExtraIngredients}
+              menuSauces={menuSauces}
+            />
+          );
         }}
       />
       <Route
