@@ -48,6 +48,50 @@ const MenuItem = ({ item, menuSauces, menuExtraIngredients }) => {
     );
   };
 
+  // choose additions
+
+  const initialSetIngredient = () => {
+    return menuExtraIngredients.map((ingredient) => {
+      return {
+        name: ingredient.name,
+        price: ingredient.price,
+        checked: false,
+      };
+    });
+  };
+
+  const [chooseIngredients, setChooseIngredients] = useState(
+    initialSetIngredient
+  );
+
+  const initialSetSauces = () => {
+    return menuSauces.map((sauce) => {
+      return {
+        name: sauce.name,
+        price: sauce.price,
+        checked: false,
+      };
+    });
+  };
+
+  const [chooseSauces, setChooseSauces] = useState(initialSetSauces);
+
+  const handleChangeChooseAdditions = (
+    nameAdditions,
+    name,
+    chooseAdditions
+  ) => {
+    const result = chooseAdditions.map((item) => {
+      return item.name === name ? { ...item, checked: !item.checked } : item;
+    });
+
+    if (nameAdditions === "ingredients") {
+      setChooseIngredients(result);
+    } else if (nameAdditions === "sauces") {
+      setChooseSauces(result);
+    }
+  };
+
   return (
     <li>
       <section>
@@ -74,8 +118,24 @@ const MenuItem = ({ item, menuSauces, menuExtraIngredients }) => {
         />
 
         <h4>choose extra ingredients:</h4>
+        {chooseIngredients.length !== 0 && (
+          <ChooseAdditions
+            item={item}
+            nameAdditions="ingredients"
+            chooseAdditions={chooseIngredients}
+            handleChangeChooseAdditions={handleChangeChooseAdditions}
+          />
+        )}
 
         <h4>choose sauce:</h4>
+        {chooseSauces.length !== 0 && (
+          <ChooseAdditions
+            item={item}
+            nameAdditions="sauces"
+            chooseAdditions={chooseSauces}
+            handleChangeChooseAdditions={handleChangeChooseAdditions}
+          />
+        )}
 
         <button>add pizza to cart</button>
       </form>
