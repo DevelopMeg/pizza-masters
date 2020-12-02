@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import ChooseAdditions from "./ChooseAdditions";
+import ChooseMainPrice from "./ChooseMainPrice";
 
-const MenuItem = ({ item }) => {
+const MenuItem = ({ item, menuSauces, menuExtraIngredients }) => {
   // icons
 
   const iconsClass = item.categories.map((category) => {
@@ -21,6 +23,31 @@ const MenuItem = ({ item }) => {
     return <i key={id} className={iconClass}></i>;
   });
 
+  // prices
+
+  const initialSetPrices = () => {
+    return item.prices.map((price) => {
+      return {
+        name: price.name,
+        size: price.size,
+        price: price.price,
+        checked: false,
+      };
+    });
+  };
+
+  const [choosePrice, setChoosePrice] = useState(initialSetPrices);
+
+  const handleChangeChoosePrice = (name) => {
+    setChoosePrice(
+      choosePrice.map((item) => {
+        return name.includes(item.name)
+          ? { ...item, checked: !item.checked }
+          : { ...item, checked: false };
+      })
+    );
+  };
+
   return (
     <li>
       <section>
@@ -40,6 +67,11 @@ const MenuItem = ({ item }) => {
 
       <form>
         <h4>choose size pizza:</h4>
+        <ChooseMainPrice
+          item={item}
+          choosePrice={choosePrice}
+          handleChangeChoosePrice={handleChangeChoosePrice}
+        />
 
         <h4>choose extra ingredients:</h4>
 
