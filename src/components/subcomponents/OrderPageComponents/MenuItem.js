@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import ChooseAdditions from "./ChooseAdditions";
 import ChooseMainPrice from "./ChooseMainPrice";
 
-const MenuItem = ({ item, menuSauces, menuExtraIngredients }) => {
+const MenuItem = ({
+  item,
+  menuSauces,
+  menuExtraIngredients,
+  statusOpenAdditions,
+  handleSetStatusOpenAdditions,
+  handleSetStatusCloseAdditions,
+}) => {
   // icons
 
   const iconsClass = item.categories.map((category) => {
@@ -92,8 +99,24 @@ const MenuItem = ({ item, menuSauces, menuExtraIngredients }) => {
     }
   };
 
+  // button add to cart
+
+  const statusChoosePrice = choosePrice.filter((price) => {
+    return price.checked;
+  });
+
+  // status open additions
+
+  let status;
+
+  statusOpenAdditions.forEach((itemStatus) => {
+    if (item.name === itemStatus.name) {
+      status = itemStatus.status;
+    }
+  });
+
   return (
-    <li>
+    <li status={status}>
       <section>
         <div>
           <h3>
@@ -104,12 +127,12 @@ const MenuItem = ({ item, menuSauces, menuExtraIngredients }) => {
           <p>{`from ${item.prices[0].price} $`}</p>
         </div>
 
-        <button>
+        <button onClick={() => handleSetStatusOpenAdditions(item.name)}>
           <i className="fas fa-plus"></i>
         </button>
       </section>
 
-      <form>
+      <form status={status}>
         <h4>choose size pizza:</h4>
         <ChooseMainPrice
           item={item}
@@ -137,7 +160,14 @@ const MenuItem = ({ item, menuSauces, menuExtraIngredients }) => {
           />
         )}
 
-        <button>add pizza to cart</button>
+        <button
+          disabled={statusChoosePrice.length === 0 ? true : false}
+          onClick={(e) => {
+            handleSetStatusCloseAdditions(e);
+          }}
+        >
+          add pizza to cart
+        </button>
       </form>
     </li>
   );
