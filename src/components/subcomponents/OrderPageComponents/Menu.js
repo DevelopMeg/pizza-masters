@@ -6,6 +6,7 @@ const Menu = ({
   menuSauces,
   menuExtraIngredients,
   menuItemsCategories,
+  handleShoppingCart,
 }) => {
   const initialStatusOpenAdditions = () => {
     return menuItems.map((item) => {
@@ -58,6 +59,7 @@ const Menu = ({
           handleSetStatusCloseAdditions={handleSetStatusCloseAdditions}
           menuSauces={menuSauces}
           menuExtraIngredients={menuExtraIngredients}
+          handleShoppingCart={handleShoppingCart}
         />
       )
     );

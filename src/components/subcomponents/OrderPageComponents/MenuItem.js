@@ -9,6 +9,7 @@ const MenuItem = ({
   statusOpenAdditions,
   handleSetStatusOpenAdditions,
   handleSetStatusCloseAdditions,
+  handleShoppingCart,
 }) => {
   // icons
 
@@ -105,6 +106,51 @@ const MenuItem = ({
     return price.checked;
   });
 
+  let addedItemToCart;
+
+  const handleAddMenuItemToCart = (e) => {
+    e.preventDefault();
+
+    const itemName = item.name;
+    const itemPrice = choosePrice.find((price) => {
+      return price.checked;
+    });
+
+    const itemIngredients = chooseIngredients.filter((ingredient) => {
+      return ingredient.checked;
+    });
+
+    const itemSauces = chooseSauces.filter((sauce) => {
+      return sauce.checked;
+    });
+
+    const generateId = Math.random().toString(36).substr(2, 9);
+
+    addedItemToCart = {
+      name: itemName,
+      price: itemPrice,
+      ingredients: itemIngredients,
+      sauces: itemSauces,
+      id: generateId,
+    };
+
+    setChoosePrice(
+      choosePrice.map((item) => {
+        return { ...item, checked: false };
+      })
+    );
+    setChooseIngredients(
+      chooseIngredients.map((item) => {
+        return { ...item, checked: false };
+      })
+    );
+    setChooseSauces(
+      chooseSauces.map((item) => {
+        return { ...item, checked: false };
+      })
+    );
+  };
+
   // status open additions
 
   let status;
@@ -164,6 +210,8 @@ const MenuItem = ({
           disabled={statusChoosePrice.length === 0 ? true : false}
           onClick={(e) => {
             handleSetStatusCloseAdditions(e);
+            handleAddMenuItemToCart(e);
+            handleShoppingCart(addedItemToCart);
           }}
         >
           add pizza to cart

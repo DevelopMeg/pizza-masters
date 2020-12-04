@@ -3,7 +3,12 @@ import React, { useState, useEffect } from "react";
 import SearchCategories from "../subcomponents/OrderPageComponents/SearchCategories";
 import Menu from "../subcomponents/OrderPageComponents/Menu";
 
-const OrderPage = ({ menuItems, menuExtraIngredients, menuSauces }) => {
+const OrderPage = ({
+  menuItems,
+  menuExtraIngredients,
+  menuSauces,
+  handleShoppingCart,
+}) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -64,6 +69,7 @@ const OrderPage = ({ menuItems, menuExtraIngredients, menuSauces }) => {
           menuExtraIngredients={menuExtraIngredients}
           menuSauces={menuSauces}
           menuItemsCategories={menuItemsCategories}
+          handleShoppingCart={handleShoppingCart}
         />
       )}
     </section>
