@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ shoppingCartLength }) => {
   const history = useHistory();
 
   const handleOpenNewPage = (path) => {
@@ -20,7 +20,7 @@ const Header = () => {
       </button>
 
       <button onClick={() => handleOpenNewPage("/cart")}>
-        <i className="fas fa-shopping-cart"></i>
+        <i className="fas fa-shopping-cart">{shoppingCartLength}</i>
         <span></span>
       </button>
     </header>

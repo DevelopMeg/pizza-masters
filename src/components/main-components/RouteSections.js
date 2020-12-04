@@ -60,6 +60,12 @@ const RouteSections = ({
     }
   }, [pricesInCart]);
 
+  useEffect(() => {
+    if (shoppingCart.length !== 0) {
+      handleCountItemInCart(shoppingCart);
+    }
+  }, [shoppingCart]);
+
   const handleShoppingCart = (addedItemToCart) => {
     const { price, ingredients, sauces } = addedItemToCart;
 
