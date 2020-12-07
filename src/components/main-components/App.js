@@ -7,6 +7,9 @@ import { BrowserRouter } from "react-router-dom";
 
 import { GlobalStyles } from "../../styles/GlobalStyles";
 
+import { ThemeProvider } from "styled-components";
+import theme from "../../styles/theme";
+
 const App = () => {
   const [shoppingCartLength, setShoppingCartLength] = useState(0);
 
@@ -20,19 +23,21 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyles />
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <div>
-          <Header shoppingCartLength={shoppingCartLength} />
-          <main>
-            <RouteSections
-              handleCountItemInCart={handleCountItemInCart}
-              handleClearShoppingCartLength={handleClearShoppingCartLength}
-            />
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <div>
+            <Header shoppingCartLength={shoppingCartLength} />
+            <main>
+              <RouteSections
+                handleCountItemInCart={handleCountItemInCart}
+                handleClearShoppingCartLength={handleClearShoppingCartLength}
+              />
+            </main>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   );
 };
