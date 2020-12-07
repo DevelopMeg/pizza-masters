@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import Footer from "./Footer";
 import RouteSections from "./RouteSections";
+import Footer from "./Footer";
 
 import { BrowserRouter } from "react-router-dom";
+
+import { GlobalStyles } from "../../styles/GlobalStyles";
 
 const App = () => {
   const [shoppingCartLength, setShoppingCartLength] = useState(0);
@@ -18,13 +20,18 @@ const App = () => {
 
   return (
     <>
+      <GlobalStyles />
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Header shoppingCartLength={shoppingCartLength} />
-        <RouteSections
-          handleCountItemInCart={handleCountItemInCart}
-          handleClearShoppingCartLength={handleClearShoppingCartLength}
-        />
-        <Footer />
+        <div>
+          <Header shoppingCartLength={shoppingCartLength} />
+          <main>
+            <RouteSections
+              handleCountItemInCart={handleCountItemInCart}
+              handleClearShoppingCartLength={handleClearShoppingCartLength}
+            />
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </>
   );
