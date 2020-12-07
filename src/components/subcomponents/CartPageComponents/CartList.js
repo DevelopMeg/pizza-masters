@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 import CartListItem from "./CartListItem";
+
+import gsap from "gsap";
 
 const CartList = ({
   shoppingCart,
@@ -20,9 +22,23 @@ const CartList = ({
     );
   });
 
+  // ANIMATIONS GSAP
+
+  const refCartList = useRef();
+
+  useEffect(() => {
+    const elementsCartList = refCartList.current;
+
+    gsap.fromTo(
+      elementsCartList,
+      { autoAlpha: 0, y: "+=100" },
+      { duration: 1, autoAlpha: 1, y: 0 }
+    );
+  }, []);
+
   return (
     <>
-      <ol>{cart}</ol>
+      <ol ref={refCartList}>{cart}</ol>
       <h4>
         sum of shopping cart:
         <span> {sumShoppingCart}$</span>

@@ -5,6 +5,8 @@ import CartPage from "../route-components/CartPage";
 
 import { Switch, Route } from "react-router-dom";
 
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
 const RouteSections = ({
   handleCountItemInCart,
   handleClearShoppingCartLength,
@@ -132,44 +134,61 @@ const RouteSections = ({
     setSumShoppingCart(0);
   };
 
+  const timeout = { enter: 400, exit: 0 };
+
   return (
-    <Switch>
-      <Route
-        path="/"
-        exact
-        render={() => {
-          return <HomePage errMenuItems={errMenuItems} menuItems={menuItems} />;
-        }}
-      />
-      <Route
-        path="/order"
-        render={() => {
-          return (
-            <OrderPage
-              menuItems={menuItems}
-              menuExtraIngredients={menuExtraIngredients}
-              menuSauces={menuSauces}
-              handleShoppingCart={handleShoppingCart}
-            />
-          );
-        }}
-      />
-      <Route
-        path="/cart"
-        render={() => {
-          return (
-            <CartPage
-              shoppingCart={shoppingCart}
-              pricesInCart={pricesInCart}
-              sumShoppingCart={sumShoppingCart}
-              handleClearOrder={handleClearOrder}
-              handleClearShoppingCartLength={handleClearShoppingCartLength}
-              handleDeleteItemCart={handleDeleteItemCart}
-            />
-          );
-        }}
-      />
-    </Switch>
+    <Route
+      render={({ location }) => (
+        <TransitionGroup>
+          <CSSTransition classNames="fade" timeout={timeout} key={location.key}>
+            <Switch location={location}>
+              <Route
+                path="/"
+                exact
+                render={() => {
+                  return (
+                    <HomePage
+                      errMenuItems={errMenuItems}
+                      menuItems={menuItems}
+                    />
+                  );
+                }}
+              />
+              <Route
+                path="/order"
+                render={() => {
+                  return (
+                    <OrderPage
+                      menuItems={menuItems}
+                      menuExtraIngredients={menuExtraIngredients}
+                      menuSauces={menuSauces}
+                      handleShoppingCart={handleShoppingCart}
+                    />
+                  );
+                }}
+              />
+              <Route
+                path="/cart"
+                render={() => {
+                  return (
+                    <CartPage
+                      shoppingCart={shoppingCart}
+                      pricesInCart={pricesInCart}
+                      sumShoppingCart={sumShoppingCart}
+                      handleClearOrder={handleClearOrder}
+                      handleClearShoppingCartLength={
+                        handleClearShoppingCartLength
+                      }
+                      handleDeleteItemCart={handleDeleteItemCart}
+                    />
+                  );
+                }}
+              />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+      )}
+    />
   );
 };
 

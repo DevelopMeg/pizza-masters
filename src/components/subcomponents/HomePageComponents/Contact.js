@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const socialIcons = [
@@ -37,9 +41,33 @@ const Contact = () => {
     );
   });
 
+  // ANIMATIONS GSAP
+
+  const refSocialIcons = useRef();
+
+  useEffect(() => {
+    const elementsSocialIcons = [...refSocialIcons.current.children];
+
+    elementsSocialIcons.forEach((element) => {
+      gsap.fromTo(
+        element,
+        { autoAlpha: 0, scale: 0 },
+        {
+          duration: 1,
+          autoAlpha: 1,
+          scale: 1,
+          scrollTrigger: {
+            trigger: refSocialIcons.current,
+            start: "top 80%",
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
     <section>
-      <div>{socialIconsList}</div>
+      <div ref={refSocialIcons}>{socialIconsList}</div>
 
       <div>
         <section>{contactInfoList}</section>

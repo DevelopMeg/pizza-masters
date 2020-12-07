@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import MenuItem from "./MenuItem";
+
+import gsap from "gsap";
 
 const Menu = ({
   menuItems,
@@ -73,7 +75,29 @@ const Menu = ({
     return menuItem(item);
   });
 
-  return <ul>{menuCategoryList.length === 0 ? menuList : menuCategoryList}</ul>;
+  // ANIMATIONS GSAP
+
+  const refMenuList = useRef();
+
+  useEffect(() => {
+    const elementsMenuList = refMenuList.current;
+
+    gsap.fromTo(
+      elementsMenuList,
+      { autoAlpha: 0, y: "+=100" },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+      }
+    );
+  }, []);
+
+  return (
+    <ul ref={refMenuList}>
+      {menuCategoryList.length === 0 ? menuList : menuCategoryList}
+    </ul>
+  );
 };
 
 export default Menu;
