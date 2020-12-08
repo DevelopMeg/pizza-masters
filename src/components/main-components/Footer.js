@@ -1,13 +1,18 @@
 import React from "react";
 
+import { FooterBoxStyle, FooterTextStyle } from "../../styles/FooterStyles";
+
 const Footer = () => {
   return (
-    <footer>
-      <p>DevelopMeg 2020 &copy; All right reserved</p>
-      <p>
-        Main photo in page by <a href="https://unsplash.com/">Unsplash</a>
-      </p>
-    </footer>
+    <FooterBoxStyle>
+      <FooterTextStyle>
+        DevelopMeg 2020 &copy; All right reserved
+      </FooterTextStyle>
+      <FooterTextStyle>
+        Photos in page by <a href="https://unsplash.com/">Unsplash</a> and{" "}
+        <a href="https://pixabay.com/pl/">Pixabay</a>.
+      </FooterTextStyle>
+    </FooterBoxStyle>
   );
 };
 

@@ -1,0 +1,137 @@
+{
+  "menu": {
+    "items": [
+      {
+        "id": 1,
+        "name": "Margherita",
+        "ingredients": "tomato sauce, mozzarella cheese, oregano, basil",
+        "categories": ["popular", "vege pizza"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 10 },
+          { "name": "medium", "size": 40, "price": 12 },
+          { "name": "large", "size": 50, "price": 14 }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Capricciosa",
+        "ingredients": "tomato sauce, mozzarella cheese, mushrooms, ham, oregano",
+        "categories": ["popular", "meat pizza"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 14 },
+          { "name": "medium", "size": 40, "price": 16 },
+          { "name": "large", "size": 50, "price": 18 }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Diavola",
+        "ingredients": "tomato sauce, mozzarella cheese, anchovies, salami, olives, chilli peppers, basil",
+        "categories": ["meat pizza"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 16 },
+          { "name": "medium", "size": 40, "price": 18 },
+          { "name": "large", "size": 50, "price": 20 }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Hawaiian",
+        "ingredients": "tomato sauce, mozzarella cheese, ham, pineapple, basil, oregano",
+        "categories": ["popular", "meat pizza"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 14 },
+          { "name": "medium", "size": 40, "price": 16 },
+          { "name": "large", "size": 50, "price": 18 }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Quattro Formaggi",
+        "ingredients": "tomato sauce, mozzarella cheese, parmesan, gorgonzola, ricotta, basil, oregano",
+        "categories": ["vege pizza"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 14 },
+          { "name": "medium", "size": 40, "price": 16 },
+          { "name": "large", "size": 50, "price": 18 }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Vegetariana",
+        "ingredients": "tomato sauce, mozzarella cheese, pepper, aubergine, courgette, olives, oregano",
+        "categories": ["vege pizza"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 12 },
+          { "name": "medium", "size": 40, "price": 14 },
+          { "name": "large", "size": 50, "price": 16 }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Frutti di Mare",
+        "ingredients": "tomato sauce, mozzarella cheese, prawns, clams, squid, garlic, oregano",
+        "categories": ["seafood pizza", "new"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 18 },
+          { "name": "medium", "size": 40, "price": 22 },
+          { "name": "large", "size": 50, "price": 24 }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Salmon",
+        "ingredients": "tomato sauce, mozzarella cheese, smoked salmon, red onion, olives, basil, oregano",
+        "categories": ["seafood pizza"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 16 },
+          { "name": "medium", "size": 40, "price": 18 },
+          { "name": "large", "size": 50, "price": 20 }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Caprese",
+        "ingredients": "tomato sauce, mozzarella cheese, fresh basil leaves, cherry tomatoes, garlic, oregano",
+        "categories": ["vege pizza", "new"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 12 },
+          { "name": "medium", "size": 40, "price": 14 },
+          { "name": "large", "size": 50, "price": 16 }
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Prosciutto di Parma",
+        "ingredients": "tomato sauce, mozzarella cheese, parma ham, olives, cherry tomatoes, wild rocket, oregano, basil ",
+        "categories": ["meat pizza", "new"],
+        "prices": [
+          { "name": "small", "size": 30, "price": 14 },
+          { "name": "medium", "size": 40, "price": 16 },
+          { "name": "large", "size": 50, "price": 18 }
+        ]
+      }
+    ],
+
+    "extra_ingredient": [
+      { "name": "mozzarella cheese", "price": 5 },
+      { "name": "parmesan cheese", "price": 5 },
+      { "name": "ham", "price": 5 },
+      { "name": "chicken", "price": 5 },
+      { "name": "set seafood", "price": 8 },
+      { "name": "salmon", "price": 6 },
+      { "name": "mushrooms", "price": 4 },
+      { "name": "olives", "price": 4 },
+      { "name": "peppers", "price": 4 },
+      { "name": "tomatoes", "price": 4 },
+      { "name": "pineapples", "price": 4 },
+      { "name": "corn", "price": 4 }
+    ],
+
+    "sauces": [
+      { "name": "garlic sauce", "price": 3 },
+      { "name": "tomato sauce", "price": 3 },
+      { "name": "bbq", "price": 3 }
+    ]
+  }
+}

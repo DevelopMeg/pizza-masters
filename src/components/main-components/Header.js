@@ -1,6 +1,15 @@
 import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
+import {
+  HeaderBoxStyle,
+  HeaderTitleStyle,
+  HeaderButtonOrderStyle,
+  HeaderButtonCartStyle,
+  HeaderIconStyle,
+  HeaderCounterCartStyle,
+} from "../../styles/HeaderStyles";
+
 const Header = ({ shoppingCartLength }) => {
   const history = useHistory();
 
@@ -9,21 +18,21 @@ const Header = ({ shoppingCartLength }) => {
   };
 
   return (
-    <header>
-      <h1>
+    <HeaderBoxStyle>
+      <HeaderTitleStyle>
         <NavLink to="/">pizza masters</NavLink>
-      </h1>
+      </HeaderTitleStyle>
 
-      <button onClick={() => handleOpenNewPage("/order")}>
-        <i className="fas fa-pizza-slice"></i>
-        order pizza
-      </button>
+      <HeaderButtonOrderStyle onClick={() => handleOpenNewPage("/order")}>
+        <HeaderIconStyle className="fas fa-pizza-slice"></HeaderIconStyle>
+        <span>order pizza</span>
+      </HeaderButtonOrderStyle>
 
-      <button onClick={() => handleOpenNewPage("/cart")}>
-        <i className="fas fa-shopping-cart">{shoppingCartLength}</i>
-        <span></span>
-      </button>
-    </header>
+      <HeaderButtonCartStyle onClick={() => handleOpenNewPage("/cart")}>
+        <HeaderIconStyle className="fas fa-shopping-cart"></HeaderIconStyle>
+        <HeaderCounterCartStyle>{shoppingCartLength}</HeaderCounterCartStyle>
+      </HeaderButtonCartStyle>
+    </HeaderBoxStyle>
   );
 };
 
