@@ -1,5 +1,12 @@
 import React from "react";
+
 import { useHistory } from "react-router-dom";
+
+import {
+  FinishOrderImageStyle,
+  FinishedOrderTitleStyle,
+  FinishOrderButtonStyle,
+} from "../../styles/CartPageStyles";
 
 const FinishedOrderPage = () => {
   const history = useHistory();
@@ -10,8 +17,13 @@ const FinishedOrderPage = () => {
 
   return (
     <>
-      <h3>Congratulations finished your order!</h3>
-      <button onClick={handleComeBackToHomePage}>come back</button>
+      <FinishOrderImageStyle></FinishOrderImageStyle>
+      <FinishedOrderTitleStyle>
+        Congratulations finished your order!
+      </FinishedOrderTitleStyle>
+      <FinishOrderButtonStyle onClick={handleComeBackToHomePage}>
+        come back
+      </FinishOrderButtonStyle>
     </>
   );
 };
