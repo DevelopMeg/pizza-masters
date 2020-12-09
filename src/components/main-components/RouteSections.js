@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import HomePage from "../route-components/HomePage";
 import OrderPage from "../route-components/OrderPage";
 import CartPage from "../route-components/CartPage";
+import FinishedOrderPage from "../route-components/FinishedOrderPage";
+import ErrorGetData from "../subcomponents/ErrorGetData";
 
 import { Switch, Route } from "react-router-dom";
-
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const RouteSections = ({
@@ -157,13 +158,16 @@ const RouteSections = ({
               <Route
                 path="/order"
                 render={() => {
-                  return (
+                  return !errMenuItems ? (
                     <OrderPage
                       menuItems={menuItems}
                       menuExtraIngredients={menuExtraIngredients}
                       menuSauces={menuSauces}
+                      shoppingCart={shoppingCart}
                       handleShoppingCart={handleShoppingCart}
                     />
+                  ) : (
+                    <ErrorGetData name="order" />
                   );
                 }}
               />
@@ -184,6 +188,7 @@ const RouteSections = ({
                   );
                 }}
               />
+              <Route path="/finished-order" component={FinishedOrderPage} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>

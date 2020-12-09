@@ -1,16 +1,23 @@
 import React from "react";
-
 import NewProductsSlider from "./NewProductsSlider";
+
+import { SectionTitleStyle } from "../../../styles/CommonStyles";
+import {
+  NewProductsSectionStyle,
+  NewProductsImageStyle,
+  SliderSectionStyle,
+} from "../../../styles/HomePageStyles";
 
 const NewProducts = ({ menuItems }) => {
   return (
-    <section>
-      <div></div>
-      <section>
-        <h2>new pizzas!</h2>
+    <NewProductsSectionStyle>
+      <NewProductsImageStyle></NewProductsImageStyle>
+
+      <SliderSectionStyle>
+        <SectionTitleStyle>new pizzas!</SectionTitleStyle>
         <NewProductsSlider menuItems={menuItems} />
-      </section>
-    </section>
+      </SliderSectionStyle>
+    </NewProductsSectionStyle>
   );
 };
 

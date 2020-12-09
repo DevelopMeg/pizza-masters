@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { DotStyle, DotsStyle } from "../../../styles/HomePageStyles";
+
 const NewProductsSliderDots = ({
   newProducts,
   sliderCounter,
@@ -42,15 +44,15 @@ const NewProductsSliderDots = ({
 
   const dots = infoDots.map((infoDot) => {
     return (
-      <span
+      <DotStyle
         key={infoDot.id}
         onClick={() => handleDots(infoDot.id)}
         chooseDot={infoDot.chooseDot}
-      ></span>
+      ></DotStyle>
     );
   });
 
-  return <div>{infoDots.length !== 0 && dots}</div>;
+  return <DotsStyle>{infoDots.length !== 0 && dots}</DotsStyle>;
 };
 
 export default NewProductsSliderDots;

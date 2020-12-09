@@ -1,14 +1,13 @@
 import React, { useEffect, useRef } from "react";
-
 import OrderSteps from "../subcomponents/HomePageComponents/OrderSteps";
 import NewProducts from "../subcomponents/HomePageComponents/NewProducts";
 import Team from "../subcomponents/HomePageComponents/Team";
 import Contact from "../subcomponents/HomePageComponents/Contact";
 
+import { BoxMainImageStyle } from "../../styles/HomePageStyles";
+
 import gsap from "gsap";
 import { ReactComponent as MainPhoto } from "../../images/main-image.svg";
-
-import { BoxMainImageStyle } from "../../styles/HomePageStyles";
 
 const HomePage = ({ errMenuItems, menuItems }) => {
   useEffect(() => {
@@ -32,8 +31,8 @@ const HomePage = ({ errMenuItems, menuItems }) => {
 
     const tl = gsap.timeline();
 
-    tl.fromTo(background, { duration: 0.8, y: "-=100" }, { autoAlpha: 1, y: 0 })
-      .fromTo(people, { duration: 1, scale: 0 }, { autoAlpha: 1, scale: 1 })
+    tl.fromTo(background, { y: "-=100" }, { duration: 0.8, autoAlpha: 1, y: 0 })
+      .fromTo(people, { scale: 0 }, { duration: 0.8, autoAlpha: 1, scale: 1 })
       .to(shadows, { duration: 0.8, autoAlpha: 1 })
       .to(backgroundShapes.children, {
         duration: 2,

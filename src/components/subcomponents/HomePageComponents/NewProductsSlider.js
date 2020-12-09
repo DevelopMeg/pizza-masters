@@ -1,10 +1,19 @@
 import React, { useState, useRef } from "react";
-
 import NewProductsSliderDots from "./NewProductsSliderDots";
 
-import newProductImage1 from "../../../images/new-product-image-1.png";
-import newProductImage2 from "../../../images/new-product-image-2.png";
-import newProductImage3 from "../../../images/new-product-image-3.png";
+import sliderImageOne from "../../../images/new-product-image-1.png";
+import sliderImageTwo from "../../../images/new-product-image-2.png";
+import sliderImageThree from "../../../images/new-product-image-3.png";
+
+import { IconHiddenStyle } from "../../../styles/CommonStyles";
+import {
+  SliderBoxStyle,
+  SliderItemStyle,
+  SliderItemTitleStyle,
+  SliderItemImageStyle,
+  SliderItemTextStyle,
+  SliderButtonStyle,
+} from "../../../styles/HomePageStyles";
 
 const NewProductsSlider = ({ menuItems }) => {
   // new products
@@ -16,11 +25,7 @@ const NewProductsSlider = ({ menuItems }) => {
     result && newProducts.push(item);
   });
 
-  const newProductImages = [
-    newProductImage1,
-    newProductImage2,
-    newProductImage3,
-  ];
+  const newProductImages = [sliderImageOne, sliderImageTwo, sliderImageThree];
 
   const newProductsData = newProducts.map((product, productId) => {
     const productImage = newProductImages.find((image, idImage) => {
@@ -64,33 +69,33 @@ const NewProductsSlider = ({ menuItems }) => {
     const { product, productImage } = item;
 
     return (
-      <section
+      <SliderItemStyle
         key={`${product.name}-slider`}
         ref={sectionSlider}
         positionSlider={positionSlider}
       >
-        <h4>{product.name}</h4>
+        <SliderItemTitleStyle>{product.name}</SliderItemTitleStyle>
 
-        <img src={productImage} alt="new pizza" />
+        <SliderItemImageStyle src={productImage} alt="new pizza" />
 
-        <p>{product.ingredients}</p>
-      </section>
+        <SliderItemTextStyle>{product.ingredients}</SliderItemTextStyle>
+      </SliderItemStyle>
     );
   });
 
   return (
-    <>
-      <div>
+    <section>
+      <SliderBoxStyle>
         {newProductsData.length !== 0 && newProductsList}
 
-        <button onClick={handlePrevProduct}>
-          <i className="fas fa-angle-left"></i>
-        </button>
+        <SliderButtonStyle positionLeft onClick={handlePrevProduct}>
+          <IconHiddenStyle className="fas fa-angle-left"></IconHiddenStyle>
+        </SliderButtonStyle>
 
-        <button onClick={handleNextProduct}>
-          <i className="fas fa-angle-right"></i>
-        </button>
-      </div>
+        <SliderButtonStyle positionRight onClick={handleNextProduct}>
+          <IconHiddenStyle className="fas fa-angle-right"></IconHiddenStyle>
+        </SliderButtonStyle>
+      </SliderBoxStyle>
 
       {newProducts.length !== 0 && (
         <NewProductsSliderDots
@@ -99,7 +104,7 @@ const NewProductsSlider = ({ menuItems }) => {
           setSliderCounter={setSliderCounter}
         />
       )}
-    </>
+    </section>
   );
 };
 
