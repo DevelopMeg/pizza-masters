@@ -2,6 +2,18 @@ import React, { useEffect, useRef } from "react";
 
 import { useHistory } from "react-router-dom";
 
+import { SectionTitleStyle } from "../../../styles/CommonStyles";
+import {
+  StepsStyle,
+  StepStyle,
+  StepNumberStyle,
+  StepNameStyle,
+  StepButtonOrderStyle,
+  StepBoxArrowStyle,
+  StepArrowStyle,
+  StepArrowSignStyle,
+} from "../../../styles/HomePageStyles";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -24,16 +36,19 @@ const OrderSteps = () => {
   const stepsList = steps.map((step, id) => {
     return (
       <React.Fragment key={step}>
-        <li>
-          <span>{id + 1}</span>
-          <p>{step}</p>
-        </li>
+        <StepStyle>
+          <StepNumberStyle>{id + 1}</StepNumberStyle>
+          <StepNameStyle>{step}</StepNameStyle>
+        </StepStyle>
 
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-            <path d="M17.554 12l-6 6h-3.979l3.093-3h-10.668v-6h10.668l-3.093-3h3.979l6 6zm.446-6h-3.979l6 6-6 6h3.979l6-6-6-6z" />
-          </svg>
-        </div>
+        <StepBoxArrowStyle>
+          <StepArrowStyle
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 25 25"
+          >
+            <StepArrowSignStyle d="M17.554 12l-6 6h-3.979l3.093-3h-10.668v-6h10.668l-3.093-3h3.979l6 6zm.446-6h-3.979l6 6-6 6h3.979l6-6-6-6z" />
+          </StepArrowStyle>
+        </StepBoxArrowStyle>
       </React.Fragment>
     );
   });
@@ -77,11 +92,14 @@ const OrderSteps = () => {
 
   return (
     <section>
-      <h2>order pizza online</h2>
-      <ul ref={refSectionSteps}>{stepsList}</ul>
-      <button ref={refButtonOrder} onClick={() => handleOpenNewPage("/order")}>
+      <SectionTitleStyle>order pizza online</SectionTitleStyle>
+      <StepsStyle ref={refSectionSteps}>{stepsList}</StepsStyle>
+      <StepButtonOrderStyle
+        ref={refButtonOrder}
+        onClick={() => handleOpenNewPage("/order")}
+      >
         check menu
-      </button>
+      </StepButtonOrderStyle>
     </section>
   );
 };
