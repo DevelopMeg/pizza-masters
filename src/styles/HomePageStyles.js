@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonStyle } from "./CommonStyles";
+import { SectionTitleStyle, ButtonStyle } from "./CommonStyles";
 
 import srcNewProductsMainImage from "../images/new-products-main-image.jpg";
 
@@ -279,5 +279,120 @@ export const DotStyle = styled.span`
 
   @media (min-width: 1024px) {
     cursor: pointer;
+  }
+`;
+
+// TEAMS
+
+export const TeamSectionStyle = styled.section`
+  box-shadow: ${({ theme }) =>
+    `0 0 2px 2px #fff, 0 0 4px 2px ${theme.colors.red.medium}`};
+  background-color: ${({ theme }) => `${theme.colors.red.medium}`};
+`;
+
+export const TeamTitleStyle = styled(SectionTitleStyle)`
+  padding-top: 18px;
+  letter-spacing: 4px;
+  color: #fff;
+
+  @media (min-width: 1024px) {
+    padding-top: 25px;
+  }
+`;
+
+export const TeamListStyle = styled.div`
+  padding: 0 0 5px 0;
+
+  @media (min-width: 1024px) {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  @media (min-width: 1900px) {
+    padding: 30px;
+  }
+`;
+
+export const TeamMemberStyle = styled.div`
+  margin: 24px 0;
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    flex-basis: 20%;
+  }
+`;
+
+export const TeamMemberImageStyle = styled.img`
+  box-shadow: ${({ theme }) => `0 0 8px 2px ${theme.colors.gray.basic}`};
+
+  border-radius: 15px;
+  filter: grayscale(80%);
+`;
+
+export const TeamMemberNameStyle = styled.h3`
+  background-color: ${({ theme }) => `${theme.colors.red.dark}`};
+
+  margin: 8px auto 0;
+  padding: 5px;
+  width: 60%;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+
+  @media (min-width: 1024px) {
+    margin-top: 15px;
+    padding: 10px 0;
+    width: auto;
+    font-size: 2rem;
+  }
+`;
+
+export const TeamImageStyle = styled.img`
+  width: 80%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  @media (min-width: 400px) {
+    width: 70%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 35%;
+    top: -55px;
+  }
+
+  @media (min-width: 1300px) {
+    width: 30%;
+  }
+`;
+
+export const AboutTeamSectionStyle = styled.section`
+  margin: 30px 0;
+
+  @media (min-width: 1024px) {
+    margin: 0 0 40px;
+  }
+`;
+
+export const AboutTeamTextStyle = styled.p`
+  padding: 0 10px;
+  text-align: justify;
+  line-height: 22px;
+
+  @media (min-width: 1024px) {
+    margin: 24px auto 0;
+    width: 80%;
+    font-size: 1.9rem;
+    line-height: 28px;
+  }
+
+  @media (min-width: 1300px) {
+    width: 70%;
+    font-size: 2rem;
+    line-height: 30px;
   }
 `;

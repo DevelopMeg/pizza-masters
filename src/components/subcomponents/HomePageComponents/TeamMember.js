@@ -1,24 +1,31 @@
 import React, { useEffect, useRef } from "react";
 
+import {
+  TeamSectionStyle,
+  TeamTitleStyle,
+  TeamListStyle,
+  TeamMemberStyle,
+  TeamMemberImageStyle,
+  TeamMemberNameStyle,
+} from "../../../styles/HomePageStyles";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const TeamMember = ({ teams }) => {
+const TeamMember = ({ teams, errTeams }) => {
   const teamsList = teams.map((person) => {
     const { picture, name } = person;
 
     return (
-      <div key={name.first}>
-        <img src={picture.large} alt="team member" />
-        <h3>
+      <TeamMemberStyle key={name.first}>
+        <TeamMemberImageStyle src={picture.large} alt="team member" />
+        <TeamMemberNameStyle>
           {name.first} {name.last}
-        </h3>
-      </div>
+        </TeamMemberNameStyle>
+      </TeamMemberStyle>
     );
   });
-
-  // ANIMATIONS GSAP
 
   const refTeamsList = useRef();
 
@@ -44,10 +51,10 @@ const TeamMember = ({ teams }) => {
   }, []);
 
   return (
-    <section>
-      <h2>our team</h2>
-      <div ref={refTeamsList}>{teamsList}</div>
-    </section>
+    <TeamSectionStyle>
+      <TeamTitleStyle>our team</TeamTitleStyle>
+      <TeamListStyle ref={refTeamsList}>{teamsList}</TeamListStyle>
+    </TeamSectionStyle>
   );
 };
 

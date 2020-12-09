@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import TeamMember from "./TeamMember";
+import TeamMember from "./TeamMembers";
 import AboutTeam from "./AboutTeam";
 import ErrorGetData from "../ErrorGetData";
 
 import srcTeamImage from "../../../images/teams-image.png";
+
+import { TeamImageStyle } from "../../../styles/HomePageStyles";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -62,8 +64,12 @@ const Team = () => {
 
   return (
     <section ref={refSectionTeam}>
-      {teams && !errTeams ? <TeamMember teams={teams} /> : <ErrorGetData />}
-      <img ref={refTeamImage} src={srcTeamImage} alt="pizza" />
+      {teams && !errTeams ? (
+        <TeamMember teams={teams} />
+      ) : (
+        <ErrorGetData name="team" />
+      )}
+      <TeamImageStyle ref={refTeamImage} src={srcTeamImage} alt="pizza" />
       <AboutTeam />
     </section>
   );
