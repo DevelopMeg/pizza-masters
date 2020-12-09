@@ -1,5 +1,18 @@
 import React, { useRef, useEffect } from "react";
 
+import { IconHiddenStyle } from "../../../styles/CommonStyles";
+import {
+  SocialIconsStyle,
+  SocialIconStyle,
+  SocialIconLinkStyle,
+  ContactInfoSectionStyle,
+  ContactInfoBoxStyle,
+  ContactInfoStyle,
+  ContactIconStyle,
+  ContactTextStyle,
+  ContactMapStyle,
+} from "../../../styles/HomePageStyles";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -14,11 +27,11 @@ const Contact = () => {
 
   const socialIconsList = socialIcons.map((socialIcon) => {
     return (
-      <div key={socialIcon.icon}>
-        <a href={socialIcon.path} target="_blank" rel="noopener noreferrer">
-          <i className={socialIcon.icon}></i>
-        </a>
-      </div>
+      <SocialIconStyle key={socialIcon.icon}>
+        <SocialIconLinkStyle href={socialIcon.path} target="_blank">
+          <IconHiddenStyle className={socialIcon.icon}></IconHiddenStyle>
+        </SocialIconLinkStyle>
+      </SocialIconStyle>
     );
   });
 
@@ -34,10 +47,10 @@ const Contact = () => {
 
   const contactInfoList = contactInfo.map((info) => {
     return (
-      <p key={info.icon}>
-        <i className={info.icon}></i>
-        <span>{info.text}</span>
-      </p>
+      <ContactInfoStyle key={info.icon}>
+        <ContactIconStyle className={info.icon}></ContactIconStyle>
+        <ContactTextStyle>{info.text}</ContactTextStyle>
+      </ContactInfoStyle>
     );
   });
 
@@ -67,16 +80,18 @@ const Contact = () => {
 
   return (
     <section>
-      <div ref={refSocialIcons}>{socialIconsList}</div>
+      <SocialIconsStyle ref={refSocialIcons}>
+        {socialIconsList}
+      </SocialIconsStyle>
 
-      <div>
-        <section>{contactInfoList}</section>
+      <ContactInfoBoxStyle>
+        <ContactInfoSectionStyle>{contactInfoList}</ContactInfoSectionStyle>
 
-        <iframe
+        <ContactMapStyle
           title="address map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d620.5766078947426!2d-0.08165747073467!3d51.525939198727364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761cba9897106b%3A0x5adb1c45fb09aaff!2s61%20Charlotte%20Rd%2C%20Hackney%2C%20London%20EC2A%203QT%2C%20Wielka%20Brytania!5e0!3m2!1spl!2spl!4v1605634022464!5m2!1spl!2spl"
-        ></iframe>
-      </div>
+        ></ContactMapStyle>
+      </ContactInfoBoxStyle>
     </section>
   );
 };

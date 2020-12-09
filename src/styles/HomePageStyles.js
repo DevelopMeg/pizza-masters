@@ -396,3 +396,116 @@ export const AboutTeamTextStyle = styled.p`
     line-height: 30px;
   }
 `;
+
+// CONTACT
+
+export const SocialIconsStyle = styled.div`
+  background-color: ${({ theme }) => `${theme.colors.gray.light}`};
+
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 1024px) {
+    flex-basis: 100%;
+  }
+`;
+
+export const SocialIconStyle = styled.div`
+  border: 2px solid #000;
+  margin: 0 6px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2rem;
+  border-radius: 30px;
+  position: relative;
+  z-index: 1;
+
+  @media (min-width: 1024px) {
+    margin: 0 8px;
+    width: 52px;
+    height: 52px;
+    font-size: 3rem;
+  }
+`;
+
+export const SocialIconLinkStyle = styled.a`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ContactInfoBoxStyle = styled.div`
+  margin: 30px auto;
+
+  @media (min-width: 1024px) {
+    margin: 35px auto 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+  }
+
+  @media (min-width: 1300px) {
+    width: 80%;
+  }
+`;
+
+export const ContactInfoSectionStyle = styled.section`
+  @media (min-width: 1024px) {
+    flex-basis: 40%;
+  }
+`;
+
+export const ContactInfoStyle = styled.p`
+  margin: 20px;
+`;
+
+export const ContactIconStyle = styled.i`
+  width: 20px;
+  font-size: 2rem;
+  text-align: center;
+
+  @media (min-width: 400px) {
+    width: 28px;
+    font-size: 2.4rem;
+  }
+
+  @media (min-width: 1024px) {
+    width: 30px;
+    font-size: 3rem;
+  }
+`;
+
+export const ContactTextStyle = styled.span`
+  margin-left: 20px;
+
+  @media (min-width: 400px) {
+    font-size: 1.8rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin-left: 30px;
+    font-size: 2.2rem;
+  }
+`;
+
+export const ContactMapStyle = styled.iframe`
+  margin: 30px auto;
+  border: none;
+  display: block;
+  width: 95%;
+  height: 200px;
+
+  @media (min-width: 1024px) {
+    margin: 0;
+    height: 230px;
+    flex-basis: 42%;
+  }
+`;
