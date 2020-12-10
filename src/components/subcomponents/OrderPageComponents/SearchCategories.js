@@ -1,6 +1,8 @@
 import React from "react";
 import SearchCategory from "./SearchCategory";
 
+import { MenuCategoriesStyle } from "../../../styles/OrderPageStyles";
+
 const SearchCategories = ({ menuCategories, handleMenuItemsCategories }) => {
   const categoriesList = menuCategories.map((category) => {
     return (
@@ -12,7 +14,7 @@ const SearchCategories = ({ menuCategories, handleMenuItemsCategories }) => {
     );
   });
 
-  return <ul>{categoriesList}</ul>;
+  return <MenuCategoriesStyle>{categoriesList}</MenuCategoriesStyle>;
 };
 
 export default SearchCategories;

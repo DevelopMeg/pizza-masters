@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
-
 import SearchCategories from "../subcomponents/OrderPageComponents/SearchCategories";
 import Menu from "../subcomponents/OrderPageComponents/Menu";
+
+import { SectionTitleStyle } from "../../styles/CommonStyles";
+import { MenuImageStyle } from "../../styles/OrderPageStyles";
 
 const OrderPage = ({
   menuItems,
   menuExtraIngredients,
   menuSauces,
+  shoppingCart,
   handleShoppingCart,
 }) => {
   useEffect(() => {
@@ -56,12 +59,14 @@ const OrderPage = ({
 
   return (
     <section>
-      <h2 extraMargin>choose your pizza</h2>
+      <SectionTitleStyle extraMargin>choose your pizza</SectionTitleStyle>
 
       <SearchCategories
         menuCategories={menuCategories}
         handleMenuItemsCategories={handleMenuItemsCategories}
       />
+
+      <MenuImageStyle />
 
       {menuItems.length !== 0 && (
         <Menu
@@ -69,6 +74,7 @@ const OrderPage = ({
           menuExtraIngredients={menuExtraIngredients}
           menuSauces={menuSauces}
           menuItemsCategories={menuItemsCategories}
+          shoppingCart={shoppingCart}
           handleShoppingCart={handleShoppingCart}
         />
       )}
