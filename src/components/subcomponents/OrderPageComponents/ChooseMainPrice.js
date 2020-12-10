@@ -1,5 +1,12 @@
 import React from "react";
 
+import {
+  MenuCheckboxListStyle,
+  MenuCheckboxItemStyle,
+  MenuCheckboxInputStyle,
+  MenuCheckboxNameStyle,
+} from "../../../styles/OrderPageStyles";
+
 const ChooseMainPrice = ({ item, choosePrice, handleChangeChoosePrice }) => {
   const nameItem = item.name.toLowerCase();
 
@@ -7,25 +14,25 @@ const ChooseMainPrice = ({ item, choosePrice, handleChangeChoosePrice }) => {
     const name = `${price.name}-${price.size}`;
 
     return (
-      <div key={price.name}>
-        <input
+      <MenuCheckboxItemStyle key={price.name}>
+        <MenuCheckboxInputStyle
           type="checkbox"
           id={`${price.name} ${nameItem}`}
           name={name}
           checked={price.checked}
           onChange={() => handleChangeChoosePrice(name)}
         />
-        <label htmlFor={`${price.name} ${nameItem}`}>
+        <MenuCheckboxNameStyle htmlFor={`${price.name} ${nameItem}`}>
           <span>{`${price.name} (${price.size} cm) -`} </span>
           <span style={{ fontWeight: "700", color: "#ce6b6b" }}>
             {`${price.price}$`}
           </span>
-        </label>
-      </div>
+        </MenuCheckboxNameStyle>
+      </MenuCheckboxItemStyle>
     );
   });
 
-  return <div>{formSize}</div>;
+  return <MenuCheckboxListStyle>{formSize}</MenuCheckboxListStyle>;
 };
 
 export default ChooseMainPrice;

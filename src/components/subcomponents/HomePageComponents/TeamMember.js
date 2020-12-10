@@ -36,10 +36,10 @@ const TeamMember = ({ teams, errTeams }) => {
     elementsTeamsList.forEach((element) => {
       gsap.fromTo(
         element,
-        { opacity: 0, scale: 0 },
+        { autoAlpha: 0, scale: 0 },
         {
           duration: 1,
-          opacity: 1,
+          autoAlpha: 1,
           scale: 1,
           scrollTrigger: {
             trigger: refTeamsList.current,

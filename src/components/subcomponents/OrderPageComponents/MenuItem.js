@@ -2,35 +2,27 @@ import React, { useState } from "react";
 import ChooseAdditions from "./ChooseAdditions";
 import ChooseMainPrice from "./ChooseMainPrice";
 
+import {
+  MenuItemStyle,
+  MenuItemInfoStyle,
+  MenuItemNameStyle,
+  MenuItemExtraInfoStyle,
+  MenuItemIconNameStyle,
+  MenuItemButtonStyle,
+  MenuItemAdditionsStyle,
+  MenuSubtitleStyle,
+  MenuButtonAddToCartStyle,
+} from "../../../styles/OrderPageStyles";
+
 const MenuItem = ({
   item,
-  menuSauces,
-  menuExtraIngredients,
   statusOpenAdditions,
   handleSetStatusOpenAdditions,
   handleSetStatusCloseAdditions,
   handleShoppingCart,
+  menuSauces,
+  menuExtraIngredients,
 }) => {
-  // icons
-
-  const iconsClass = item.categories.map((category) => {
-    if (category === "meat pizza") {
-      return "fas fa-bacon";
-    } else if (category === "vege pizza") {
-      return "fas fa-leaf";
-    } else if (category === "seafood pizza") {
-      return "fas fa-fish";
-    } else if (category === "popular") {
-      return "fas fa-star";
-    } else {
-      return null;
-    }
-  });
-
-  const categoriesIcons = iconsClass.map((iconClass, id) => {
-    return <i key={id} className={iconClass}></i>;
-  });
-
   // prices
 
   const initialSetPrices = () => {
@@ -100,6 +92,31 @@ const MenuItem = ({
     }
   };
 
+  // icons
+
+  const iconsClass = item.categories.map((category) => {
+    if (category === "meat pizza") {
+      return "fas fa-bacon";
+    } else if (category === "vege pizza") {
+      return "fas fa-leaf";
+    } else if (category === "seafood pizza") {
+      return "fas fa-fish";
+    } else if (category === "popular") {
+      return "fas fa-star";
+    } else {
+      return null;
+    }
+  });
+
+  const categoriesIcons = iconsClass.map((iconClass, id) => {
+    return (
+      <MenuItemIconNameStyle
+        key={id}
+        className={iconClass}
+      ></MenuItemIconNameStyle>
+    );
+  });
+
   // button add to cart
 
   const statusChoosePrice = choosePrice.filter((price) => {
@@ -151,8 +168,6 @@ const MenuItem = ({
     );
   };
 
-  // status open additions
-
   let status;
 
   statusOpenAdditions.forEach((itemStatus) => {
@@ -162,31 +177,36 @@ const MenuItem = ({
   });
 
   return (
-    <li status={status}>
-      <section>
+    <MenuItemStyle status={status}>
+      <MenuItemInfoStyle>
         <div>
-          <h3>
+          <MenuItemNameStyle>
             {item.name} {categoriesIcons}
-          </h3>
+          </MenuItemNameStyle>
 
-          <p>{item.ingredients}</p>
-          <p>{`from ${item.prices[0].price} $`}</p>
+          <MenuItemExtraInfoStyle>{item.ingredients}</MenuItemExtraInfoStyle>
+          <MenuItemExtraInfoStyle
+            smallMargin
+            bold
+          >{`from ${item.prices[0].price} $`}</MenuItemExtraInfoStyle>
         </div>
 
-        <button onClick={() => handleSetStatusOpenAdditions(item.name)}>
+        <MenuItemButtonStyle
+          onClick={() => handleSetStatusOpenAdditions(item.name)}
+        >
           <i className="fas fa-plus"></i>
-        </button>
-      </section>
+        </MenuItemButtonStyle>
+      </MenuItemInfoStyle>
 
-      <form status={status}>
-        <h4>choose size pizza:</h4>
+      <MenuItemAdditionsStyle status={status}>
+        <MenuSubtitleStyle>choose size pizza:</MenuSubtitleStyle>
         <ChooseMainPrice
           item={item}
           choosePrice={choosePrice}
           handleChangeChoosePrice={handleChangeChoosePrice}
         />
 
-        <h4>choose extra ingredients:</h4>
+        <MenuSubtitleStyle>choose extra ingredients:</MenuSubtitleStyle>
         {chooseIngredients.length !== 0 && (
           <ChooseAdditions
             item={item}
@@ -196,7 +216,7 @@ const MenuItem = ({
           />
         )}
 
-        <h4>choose sauce:</h4>
+        <MenuSubtitleStyle>choose sauce:</MenuSubtitleStyle>
         {chooseSauces.length !== 0 && (
           <ChooseAdditions
             item={item}
@@ -206,7 +226,7 @@ const MenuItem = ({
           />
         )}
 
-        <button
+        <MenuButtonAddToCartStyle
           disabled={statusChoosePrice.length === 0 ? true : false}
           onClick={(e) => {
             handleSetStatusCloseAdditions(e);
@@ -215,9 +235,9 @@ const MenuItem = ({
           }}
         >
           add pizza to cart
-        </button>
-      </form>
-    </li>
+        </MenuButtonAddToCartStyle>
+      </MenuItemAdditionsStyle>
+    </MenuItemStyle>
   );
 };
 

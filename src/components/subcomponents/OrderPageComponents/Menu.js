@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import MenuItem from "./MenuItem";
 
+import { MenuListStyle } from "../../../styles/OrderPageStyles";
+
 import gsap from "gsap";
 
 const Menu = ({
@@ -8,6 +10,7 @@ const Menu = ({
   menuSauces,
   menuExtraIngredients,
   menuItemsCategories,
+  shoppingCart,
   handleShoppingCart,
 }) => {
   const initialStatusOpenAdditions = () => {
@@ -59,9 +62,10 @@ const Menu = ({
           statusOpenAdditions={statusOpenAdditions}
           handleSetStatusOpenAdditions={handleSetStatusOpenAdditions}
           handleSetStatusCloseAdditions={handleSetStatusCloseAdditions}
+          shoppingCart={shoppingCart}
+          handleShoppingCart={handleShoppingCart}
           menuSauces={menuSauces}
           menuExtraIngredients={menuExtraIngredients}
-          handleShoppingCart={handleShoppingCart}
         />
       )
     );
@@ -94,9 +98,9 @@ const Menu = ({
   }, []);
 
   return (
-    <ul ref={refMenuList}>
+    <MenuListStyle ref={refMenuList}>
       {menuCategoryList.length === 0 ? menuList : menuCategoryList}
-    </ul>
+    </MenuListStyle>
   );
 };
 

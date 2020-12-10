@@ -1,5 +1,12 @@
 import React from "react";
 
+import {
+  MenuCheckboxListStyle,
+  MenuCheckboxItemStyle,
+  MenuCheckboxInputStyle,
+  MenuCheckboxNameStyle,
+} from "../../../styles/OrderPageStyles";
+
 const ChooseAdditions = ({
   item,
   nameAdditions,
@@ -10,8 +17,8 @@ const ChooseAdditions = ({
 
   const formAdditions = chooseAdditions.map((item) => {
     return (
-      <div key={item.name}>
-        <input
+      <MenuCheckboxItemStyle key={item.name}>
+        <MenuCheckboxInputStyle
           type="checkbox"
           id={`${item.name} ${nameItem}`}
           name={item.name}
@@ -24,15 +31,15 @@ const ChooseAdditions = ({
             );
           }}
         />
-        <label htmlFor={`${item.name} ${nameItem}`}>
+        <MenuCheckboxNameStyle htmlFor={`${item.name} ${nameItem}`}>
           <span>{item.name}</span>
           <span>{` (+ ${item.price}$)`}</span>
-        </label>
-      </div>
+        </MenuCheckboxNameStyle>
+      </MenuCheckboxItemStyle>
     );
   });
 
-  return <div>{formAdditions}</div>;
+  return <MenuCheckboxListStyle>{formAdditions}</MenuCheckboxListStyle>;
 };
 
 export default ChooseAdditions;
