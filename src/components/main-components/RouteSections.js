@@ -26,7 +26,9 @@ const RouteSections = ({
 
   const getMenu = async () => {
     try {
-      const response = await fetch("http://localhost:3001/menu");
+      const response = await fetch(
+        "https://my-json-server.typicode.com/DevelopMeg/pizza-masters/menu"
+      );
 
       if (!response.ok) {
         throw new Error();
