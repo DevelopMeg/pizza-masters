@@ -1,6 +1,11 @@
 import React, { useRef, useEffect } from "react";
-
 import CartListItem from "./CartListItem";
+
+import {
+  CartListStyle,
+  CartSumStyle,
+  CartSumAmountStyle,
+} from "../../../styles/CartPageStyles";
 
 import gsap from "gsap";
 
@@ -38,11 +43,11 @@ const CartList = ({
 
   return (
     <>
-      <ol ref={refCartList}>{cart}</ol>
-      <h4>
+      <CartListStyle ref={refCartList}>{cart}</CartListStyle>
+      <CartSumStyle>
         sum of shopping cart:
-        <span> {sumShoppingCart}$</span>
-      </h4>
+        <CartSumAmountStyle> {sumShoppingCart}$</CartSumAmountStyle>
+      </CartSumStyle>
     </>
   );
 };

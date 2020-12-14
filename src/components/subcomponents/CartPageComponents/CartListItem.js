@@ -1,5 +1,15 @@
 import React from "react";
 
+import {
+  CartItemStyle,
+  CartDeleteItemStyle,
+  CartProductNameStyle,
+  CartInfoBoxSizeStyle,
+  CartBoxAdditionsStyle,
+  CartAdditionsStyle,
+  CartProductSumStyle,
+} from "../../../styles/CartPageStyles";
+
 const CartListItem = ({
   itemCart,
   idItemCart,
@@ -32,38 +42,37 @@ const CartListItem = ({
     .join(", ");
 
   return (
-    <li key={`${itemCart.name}-${idItemCart}`}>
-      <div onClick={() => handleDeleteItemCart(itemCart.id)}>
+    <CartItemStyle key={`${itemCart.name}-${idItemCart}`}>
+      <CartDeleteItemStyle onClick={() => handleDeleteItemCart(itemCart.id)}>
         <i className="fas fa-times"></i>
-      </div>
+      </CartDeleteItemStyle>
+      <CartProductNameStyle>{itemCart.name} </CartProductNameStyle>
 
-      <h3>{itemCart.name} </h3>
-
-      <p>
+      <CartInfoBoxSizeStyle>
         <span>{`(${price.name} / ${price.size}cm) -`}</span>
         <span style={{ fontWeight: "600" }}> {primaryPrice}$</span>
-      </p>
+      </CartInfoBoxSizeStyle>
 
       {ingredientsList.length !== 0 && (
-        <div>
-          <p titleAddition>
+        <CartBoxAdditionsStyle>
+          <CartAdditionsStyle titleAddition>
             extra ingredients: <span>{`(+${ingredientPrice}$)`}</span>
-          </p>
-          <p>{ingredientsList}</p>
-        </div>
+          </CartAdditionsStyle>
+          <CartAdditionsStyle>{ingredientsList}</CartAdditionsStyle>
+        </CartBoxAdditionsStyle>
       )}
 
       {saucesList.length !== 0 && (
-        <div>
-          <p titleAddition>
+        <CartBoxAdditionsStyle>
+          <CartAdditionsStyle titleAddition>
             sauces: <span>{`(+${saucesPrice}$)`}</span>
-          </p>
-          <p>{saucesList}</p>
-        </div>
+          </CartAdditionsStyle>
+          <CartAdditionsStyle>{saucesList}</CartAdditionsStyle>
+        </CartBoxAdditionsStyle>
       )}
 
-      <h4>sum: {fullPrice}$</h4>
-    </li>
+      <CartProductSumStyle>sum: {fullPrice}$</CartProductSumStyle>
+    </CartItemStyle>
   );
 };
 
