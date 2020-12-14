@@ -26,7 +26,6 @@ main {
   padding-top: 125px;
   margin: 0 auto;
   width:90%;
-  min-height: 90vh;
 
   @media(min-width: 400px) {
     width:85%;
@@ -38,6 +37,7 @@ main {
 
   @media(min-width:1300px) {
     width: 75%;
+    min-height: 90vh;
   }
 
   @media(min-width:1600px) {

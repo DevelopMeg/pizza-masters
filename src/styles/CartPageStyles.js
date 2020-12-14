@@ -222,7 +222,7 @@ export const FinishOrderImageStyle = styled.div`
 
   @media (min-width: 1024px) {
     width: 50%;
-    height: 420px;
+    height: 330px;
   }
 
   @media (min-width: 1800px) {
