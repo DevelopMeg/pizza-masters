@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import TeamMember from "./TeamMembers";
+import TeamMember from "./TeamMember";
 import AboutTeam from "./AboutTeam";
 import ErrorGetData from "../ErrorGetData";
 
