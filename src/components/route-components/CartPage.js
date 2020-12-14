@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
-
 import CartList from "../subcomponents/CartPageComponents/CartList";
 
 import { useHistory } from "react-router-dom";
+
+import { SectionTitleStyle } from "../../styles/CommonStyles";
+import {
+  CartSectionStyle,
+  CartImageStyle,
+  CartButtonOrderStyle,
+} from "../../styles/CartPageStyles";
 
 const CartPage = ({
   shoppingCart,
@@ -23,8 +29,10 @@ const CartPage = ({
   }, []);
 
   return (
-    <section>
-      <h2 extraMargin>Your shopping list</h2>
+    <CartSectionStyle>
+      <SectionTitleStyle extraMargin>Your shopping list</SectionTitleStyle>
+
+      <CartImageStyle></CartImageStyle>
 
       <CartList
         pricesInCart={pricesInCart}
@@ -33,7 +41,7 @@ const CartPage = ({
         handleDeleteItemCart={handleDeleteItemCart}
       />
 
-      <button
+      <CartButtonOrderStyle
         disabled={shoppingCart.length === 0}
         onClick={() => {
           handleOpenNewPage("/finished-order");
@@ -42,8 +50,8 @@ const CartPage = ({
         }}
       >
         order now
-      </button>
-    </section>
+      </CartButtonOrderStyle>
+    </CartSectionStyle>
   );
 };
 
