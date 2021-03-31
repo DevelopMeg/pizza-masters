@@ -1,6 +1,8 @@
 # pizza-masters
 
-#### This is a pizzeria page, where you order your favorite pizza
+> This is my old project (which doesn`t contain aspects I learned from feedback), but shows progress of my skills
+
+#### This is a pizzeria page, where you can order pizza
 
 Link: https://developmeg.github.io/pizza-masters/
 
@@ -8,11 +10,11 @@ Link: https://developmeg.github.io/pizza-masters/
 
 ![screen home page](./public/screens/screen1.png)
 
-![screen weather page](./public/screens/screen2.png)
+![screen home page](./public/screens/screen2.png)
 
-![screen pollution page](./public/screens/screen3.png)
+![screen order page](./public/screens/screen3.png)
 
-![screen pollution page](./public/screens/screen4.png)
+![screen cart page](./public/screens/screen4.png)
 
 ## Technologies
 
